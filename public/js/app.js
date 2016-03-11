@@ -20,6 +20,17 @@ function TodoController($scope, $http){
 		});
 	}
 	
+	$scope.deleteTodo = function(todo){
+		var id = todo._id;
+		$http.delete('/api/todos/'+id)
+			.then(function(response){
+				initTodos();
+		})
+			.catch(function(err){
+			 	console.err(err);
+		});
+	}
+	
 	function initTodos(){
 		$http.get('/api/todos')
 			.then(function(response){

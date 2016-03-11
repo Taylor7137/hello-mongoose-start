@@ -15,8 +15,9 @@
 	</form>
 	<hr>
 		<ul>
-			<li ng-repeat="todo in todos">
-				{{todo.desc}}
+			<li class= 'well' ng-repeat="todo in todos">
+				{{todo.desc}} - {{todo._id}}
+				<button type="button" class='btn btn-sm btn-danger' ng-click="deleteTodo(todo)">delete</button>
 			</li>
 		</ul>
 	</div>

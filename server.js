@@ -77,6 +77,10 @@ server.put('/api/todos/:id', function(req, res){
 });
 
 server.delete('/api/todos/:id', function(req, res){
+	Todo.findOneAndRemove({_id: req.params.id}, function(err, todo){
+		if(err) throw err;
+		res/json(todo);
+	});
 	res.send('I deleted a todo!');
 });
 
