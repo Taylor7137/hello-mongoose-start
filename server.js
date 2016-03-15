@@ -4,24 +4,9 @@ var express = require('express'),
 	 mongoose = require('mongoose'),
 	 Schema = mongoose.Schema,
 	 bodyParser = require('body-parser'),
-
     server  = express();
 
-//Todo Model
-var todoSchema = new Schema({
-	desc: {
-		type: String,
-		required: true
-	},
-	completed: {
-		type: Boolean,
-		required: true
-	}
-
-});
-
-var Todo = mongoose.model('Todo', todoSchema);
-
+	 Todo = require('./models/todo.model.js');
 
 //create a connection to our db
 mongoose.connect('mongodb://localhost/todoApp');
@@ -58,7 +43,7 @@ server.post('/api/todos', function(req,res){
   });
 });
 
-server.put('/api/todos/:id', function(req, res){
+server.put('/api/todos/:id', function(req, res, next){
   var id = req.params.id;
   var desc = req.body.desc;
   var completed = req.body.completed;
@@ -67,7 +52,7 @@ server.put('/api/todos/:id', function(req, res){
     completed: completed
   };
   Todo.findOneAndUpdate({_id: id}, update, function(err, todo){
-    if(err) throw err;
+    if(err) next();
 
     res.json(todo);
   });

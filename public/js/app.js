@@ -45,7 +45,7 @@ function TodoController($scope, $http){
 	  var id = todo._id;
 	  $http.delete('/api/todos/'+id)
 	  		.then(function(response){
-		  initTodos()
+		  initTodos();
 	  })
 	  		.catch(function(err){
 		  console.err(err);
