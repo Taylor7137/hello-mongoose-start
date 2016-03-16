@@ -19,11 +19,11 @@ function TodoService($http){
 	}
 	
 	function createTodo(todoObj){
-		 return $http.put('/api/todos', todoObj);	
+		 return $http.post('/api/todos', todoObj);	
 	}
 	
 	function updateTodo(id, todoObj){
-		 return $http.post('/api/todos/'+id, todoObj)
+		 return $http.put('/api/todos/'+id, todoObj)
         .then(function(response){          
           todoObj.edit = false;
         })
