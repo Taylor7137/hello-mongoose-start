@@ -19,7 +19,7 @@ function TodoService($http){
 	}
 	
 	function createTodo(todoObj){
-		 return $http.put('/api/todos/', todoObj);	
+		 return $http.put('/api/todos', todoObj);	
 	}
 	
 	function updateTodo(id, todoObj){

@@ -18,6 +18,7 @@ function TodoController($scope, $http, TodoService){
   		TodoService.create(todo)
 			.then(function(){
 					$scope.newTodo = {};
+					getTodos();
 			});
   }
   
