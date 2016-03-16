@@ -1,7 +1,7 @@
 var Todo = require('../models/todo.model.js');
 var todoCtrl = {
 	getAll: getAllTodos,
-	creat: createTodo,
+	create: createTodo,
 	update: updateTodo,
 	delete: deleteTodo
 };
@@ -21,7 +21,6 @@ function createTodo(req, res){
    };
    Todo.create(todoObj, function(err, todo){
     if(err) throw err;
-
     res.json(todo);
   });
 

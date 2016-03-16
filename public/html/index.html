@@ -2,7 +2,7 @@
 <html lang="en" ng-app = 'todoApp'>
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Taylor</title>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js'></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
 </head>
@@ -22,7 +22,7 @@
 		</div>
 		<ul>
 			<li class= 'well' ng-repeat="todo in todos">
-				{{todo.desc}} - {{todo._id}}
+				{{todo.desc}}
 				<button type="button" class='btn btn-sm btn-danger' ng-click="deleteTodo(todo)">delete</button>
 				<button type="button" class='btn btn-sm btn-primary' ng-click="editTodo(todo)">edit</button>
 			</li>
